@@ -1,28 +1,63 @@
-import React from 'react';
-import Link from "next/link";
+import {ArrowRight} from "lucide-react";
 
-const CustomButton = ({label}: {label: string}) => {
+import {cn} from "@/lib/utils";
+
+interface CustomButtonProps {
+    label: string;
+    className?: string;
+    type?: 'submit' | 'reset';
+}
+
+const CustomButton = ({label, className, type}: CustomButtonProps) => {
+    const backgroundColor = 'bg-[#EF476F] hover:bg-gray-800'
+    const labelColor = 'text-gray-800 group-hover:text-[#EF476F]'
+    const arrowBgColor = 'bg-gray-800 group-hover:bg-[#EF476F]'
+    const arrowFontColor = 'text-[#EF476F]'
+    const arrowFontHoverColor = 'text-gray-800'
+
     return (
-        /*TODO: Add contact form and email functionality to contact me button*/
-        <Link
-            href="mailto:renaudsennon@gmail.com"
-            className="relative inline-block text-lg group mt-5"
-        >
+        <div className="min-h-12 w-48">
+            <button
+                type={type}
+                className={cn(
+                    "group flex h-12 w-40 items-center justify-center gap-3 rounded-lg p-2 font-bold transition-colors duration-100 ease-in-out",
+                    backgroundColor, className,
+                )}
+            >
                 <span
-                    className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-                    <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"/>
-                    <span
-                        className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"/>
-                    <span className="relative">
-                        {label}
-                    </span>
+                    className={cn(
+                        "transition-colors duration-100 ease-in-out", labelColor,
+                    )}
+                >
+                  {label}
                 </span>
-            <span
-                className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
-                data-rounded="rounded-lg"
-            ></span>
-        </Link>
+                <div
+                    className={cn(
+                        "relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-full transition-transform duration-100",
+                        arrowBgColor,
+                    )}
+                >
+                    <div
+                        className="absolute left-0 flex h-7 w-14 -translate-x-1/2 items-center justify-center transition-all duration-200 ease-in-out group-hover:translate-x-0">
+                        <ArrowRight
+                            size={16}
+                            className={cn(
+                                "size-7 transform p-1 opacity-0 group-hover:opacity-100",
+                                arrowFontHoverColor
+                            )}
+                        />
+                        <ArrowRight
+                            size={16}
+                            className={cn(
+                                "size-7 transform p-1 opacity-100 transition-transform duration-300 ease-in-out group-hover:opacity-0",
+                                arrowFontColor
+                            )}
+                        />
+                    </div>
+                </div>
+            </button>
+        </div>
     );
-};
+}
 
-export default CustomButton
+export default CustomButton;

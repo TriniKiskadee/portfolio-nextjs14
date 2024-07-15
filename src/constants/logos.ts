@@ -1,4 +1,4 @@
-export const logos = [
+export const currentSkillslogos = [
     {
         name: 'NodeJS',
         image: '/tech-icons/node-js.svg',
@@ -151,6 +151,43 @@ export const logos = [
     },
 ]
 
+export const skillToLearnLogos = [
+    {
+        name: 'Figma',
+        image: '/tech-icons/figma.svg',
+        href: 'https://nodejs.org/en',
+        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
+            enabling the creation of scalable network applications.`,
+    },
+    {
+        name: 'Framer',
+        image: '/tech-icons/framer.svg',
+        href: 'https://nodejs.org/en',
+        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
+            enabling the creation of scalable network applications.`,
+    },
+    {
+        name: 'Framer Motion',
+        image: '/tech-icons/framer_motion.svg',
+        href: 'https://nodejs.org/en',
+        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
+            enabling the creation of scalable network applications.`,
+    },
+    {
+        name: 'GSAP',
+        image: '/tech-icons/gsap.svg',
+        href: 'https://nodejs.org/en',
+        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
+            enabling the creation of scalable network applications.`,
+    },
+    {
+        name: 'Docker',
+        image: '/tech-icons/docker.svg',
+        href: 'https://nodejs.org/en',
+        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
+            enabling the creation of scalable network applications.`,
+    },
+]
 export const socialMedia = [
     {
         name: 'LinkedIn',
@@ -158,4 +195,17 @@ export const socialMedia = [
         username: 'Renaud Sennon',
         href: 'https://www.linkedin.com/in/renaud-sennon-4667372b2/',
     }
+]
+
+export const contacts = [
+    {
+        name: 'Email',
+        image: '/tech-icons/gmail.svg',
+        contact: 'renaudsennon@gmail.com',
+    },
+    {
+        name: 'WhatsApp',
+        image: '/tech-icons/whatsapp.svg',
+        contact: '1(868)743-0806',
+    },
 ]

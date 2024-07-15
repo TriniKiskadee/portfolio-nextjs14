@@ -22,7 +22,7 @@ type HoverCardProps = {
 const HoverCardComponent = ({trigger, title, description, image, url}: HoverCardProps) => {
     return (
         <HoverCard>
-            <HoverCardTrigger asChild>
+            <HoverCardTrigger asChild className={'hover:scale-[120%]'}>
                 {trigger}
             </HoverCardTrigger>
             <HoverCardContent className="w-80">

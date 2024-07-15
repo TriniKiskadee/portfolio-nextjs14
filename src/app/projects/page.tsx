@@ -1,30 +1,21 @@
 import React from 'react';
-import {client} from "@/lib/sanity";
-import {ProjectsCard} from "@/lib/interface";
 import Image from "next/image";
+import {getAllProjects} from "@/actions/project.actions";
+import {ProjectsCard} from "@/lib/interface";
 
-async function getData() {
-        const query = `
-        * [_type == 'project'] {
-            title,
-            _id,
-            link,
-            description,
-            tags,
-            'imageUrl': image.asset -> url,
-        }`
-
-    try {
-        const data = await client.fetch(query);
-
-        if (data) return data
-    } catch (error: any) {
-        console.log(`"getData" ERROR: ${error}`);
+const data = [
+    {
+        _id: '1',
+        title: 'Project 1',
+        description: 'Dummy Data',
+        tags: ['tag1', 'tag2', 'tag3'],
+        imageUrl: '',
+        link: 'https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiTss_P5KeHAxUdVTABHWteBaQQPAgJ',
     }
-}
+]
 
 const ProjectPage = async () => {
-    const data: ProjectsCard[] = await getData();
+    /*const data: ProjectsCard = await getAllProjects();*/
 
     return (
         <div className={'max-w-7xl w-full px-4 md:px-8 mx-auto'}>

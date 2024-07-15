@@ -1,30 +1,12 @@
 import React from 'react';
-import {client} from "@/lib/sanity";
 import {ProjectsCard} from "@/lib/interface";
 import Image from "next/image";
+import {getAllProjects} from "@/actions/project.actions";
 
-async function getData() {
-    const query = `
-        *[_type == 'project'] | order(_createdAt desc) [0...2]  {
-            title,
-            _id,
-            link,
-            description,
-            tags,
-            'imageUrl': image.asset -> url,
-        }`
-
-    try {
-        const data = await client.fetch(query);
-
-        if (data) return data
-    } catch (error: any) {
-        console.log(`"getData" ERROR: ${error}`);
-    }
-}
 
 const FavouriteProjects = async () => {
-    const data: ProjectsCard[] = await getData()
+    const data = await getAllProjects()
+    if (data === undefined) return null;
     return (
         <>
             <h1 className={'text-4xl lg:text-6xl font-medium mt-20'}>
@@ -33,7 +15,7 @@ const FavouriteProjects = async () => {
             <div className={'py-10 grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 grid-cols-1'}>
                 {data.map((item) => (
                     <a
-                        key={item._id}
+                        key={item.id}
                         href={item.link}
                         className={'group block'}
                         target={'_blank'}
