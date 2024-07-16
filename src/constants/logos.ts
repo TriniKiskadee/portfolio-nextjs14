@@ -77,40 +77,11 @@ export const currentSkillslogos = [
         transactions, supporting businesses in managing payments globally.`,
     },
     {
-        name: 'Appwrite',
-        image: '/tech-icons/appwriteio.svg',
-        href: 'https://appwrite.io/',
-        description: `Appwrite is an open-source backend-as-a-service (BaaS) platform that provides developers with 
-        ready-to-use APIs for authentication, databases, file storage, and more.`,
-    },
-    {
-        name: 'Sanity',
-        image: '/tech-icons/sanity.svg',
-        href: 'https://www.sanity.io/',
-        description: ` Sanity is a headless CMS (Content Management System) that offers a real-time, collaborative 
-        editing environment, and a flexible, fully customizable content model.`,
-    },
-    {
-        name: 'OpenAI',
-        image: '/tech-icons/openai.svg',
-        href: 'https://openai.com/',
-        description: `OpenAI is a research organization and technology company that develops advanced artificial 
-        intelligence models, including language models like GPT-4.`,
-    },
-    {
         name: 'Python',
         image: '/tech-icons/python.svg',
         href: 'https://www.python.org/',
         description: `Python is a high-level, interpreted programming language known for its simplicity and readability,
          widely used for web development, data analysis, scientific computing, and artificial intelligence.`,
-    },
-    {
-        name: 'PyTorch',
-        image: '/tech-icons/pytorch.svg',
-        href: 'https://pytorch.org/',
-        description: `PyTorch is an open-source machine learning library developed by Facebook's AI Research lab, used 
-        for applications such as computer vision and natural language processing, known for its flexibility and ease 
-        of use.`,
     },
     {
         name: 'NumPy',
@@ -149,53 +120,102 @@ export const currentSkillslogos = [
         description: `GitHub is a web-based platform that uses Git for version control and provides hosting for 
         software development and collaboration, enabling developers to manage and review code, track issues, and work together on projects.`,
     },
-]
+    {
+        name: 'OpenAI',
+        image: '/tech-icons/openai.svg',
+        href: 'https://openai.com/',
+        description: `OpenAI is a research organization and technology company that develops advanced artificial 
+        intelligence models, including language models like GPT-4.`,
+    },
+] as const
 
 export const skillToLearnLogos = [
     {
         name: 'Figma',
         image: '/tech-icons/figma.svg',
-        href: 'https://nodejs.org/en',
-        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
-            enabling the creation of scalable network applications.`,
+        href: 'https://www.figma.com/',
+        description: `Figma is a web-based design tool used for UI/UX design, allowing real-time collaboration and 
+        prototyping for designers and teams.`,
     },
     {
         name: 'Framer',
         image: '/tech-icons/framer.svg',
-        href: 'https://nodejs.org/en',
-        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
-            enabling the creation of scalable network applications.`,
+        href: 'https://www.framer.com/',
+        description: `Framer is a design and prototyping tool that helps designers create interactive and animated 
+        prototypes with advanced animations and responsive layouts.`,
     },
     {
         name: 'Framer Motion',
         image: '/tech-icons/framer_motion.svg',
-        href: 'https://nodejs.org/en',
-        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
-            enabling the creation of scalable network applications.`,
+        href: 'https://www.framer.com/motion/',
+        description: `Framer Motion is an open-source React library that simplifies the creation of complex animations and gestures for web applications.`,
     },
     {
         name: 'GSAP',
         image: '/tech-icons/gsap.svg',
-        href: 'https://nodejs.org/en',
-        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
-            enabling the creation of scalable network applications.`,
+        href: 'https://gsap.com/',
+        description: `GSAP (GreenSock Animation Platform) is a robust JavaScript library for creating high-performance animations, offering precise 
+        control over complex sequences and effects.`,
     },
     {
         name: 'Docker',
         image: '/tech-icons/docker.svg',
-        href: 'https://nodejs.org/en',
-        description: `Node.js is a runtime environment that allows developers to execute JavaScript on the server side,
-            enabling the creation of scalable network applications.`,
+        href: 'https://www.docker.com/',
+        description: `Docker is a platform that allows developers to automate the deployment of applications inside 
+        lightweight, portable containers, ensuring consistency across different environments.`,
     },
-]
+    {
+        name: 'Kubernetes',
+        image: '/tech-icons/kubernetes.svg',
+        href: 'https://kubernetes.io/',
+        description: `Kubernetes is an open-source container orchestration platform designed to automate the deployment,
+         scaling, and management of containerized applications, ensuring high availability and efficient resource 
+         utilization.`,
+    },
+    {
+        name: 'Sanity',
+        image: '/tech-icons/sanity.svg',
+        href: 'https://www.sanity.io/',
+        description: ` Sanity is a headless CMS (Content Management System) that offers a real-time, collaborative 
+        editing environment, and a flexible, fully customizable content model.`,
+    },
+    {
+        name: 'Payload CMS',
+        image: '/tech-icons/payload.svg',
+        href: 'https://payloadcms.com/',
+        description: `Payload CMS is a headless content management system built with Node.js and React, offering a 
+        flexible and customizable interface for managing and delivering content to any front-end.`,
+    },
+    {
+        name: 'Appwrite',
+        image: '/tech-icons/appwriteio.svg',
+        href: 'https://appwrite.io/',
+        description: `Appwrite is an open-source backend-as-a-service (BaaS) platform that provides developers with 
+        ready-to-use APIs for authentication, databases, file storage, and more.`,
+    },
+    {
+        name: 'PyTorch',
+        image: '/tech-icons/pytorch.svg',
+        href: 'https://pytorch.org/',
+        description: `PyTorch is an open-source machine learning library developed by Facebook's AI Research lab, used 
+        for applications such as computer vision and natural language processing, known for its flexibility and ease 
+        of use.`,
+    },
+] as const
 export const socialMedia = [
     {
         name: 'LinkedIn',
         image: '/tech-icons/linkedin.svg',
         username: 'Renaud Sennon',
         href: 'https://www.linkedin.com/in/renaud-sennon-4667372b2/',
-    }
-]
+    },
+    {
+        name: 'GitHub',
+        image: '/tech-icons/github.svg',
+        username: 'TriniKiskadee',
+        href: 'https://github.com/TriniKisKadee',
+    },
+] as const
 
 export const contacts = [
     {
@@ -208,4 +228,4 @@ export const contacts = [
         image: '/tech-icons/whatsapp.svg',
         contact: '1(868)743-0806',
     },
-]
+] as const

@@ -1,6 +1,5 @@
 'use client'
 
-import {Button} from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
@@ -12,7 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import {Input} from "@/components/ui/input"
 import CustomButton from "@/components/custom-button";
-import React from "react";
+import React, {useState} from "react";
 import {ContactFormSchema} from "@/schemas/contact.schema";
 import {z} from "zod";
 import {useForm} from "react-hook-form";
@@ -20,6 +19,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {toast} from "sonner"
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Textarea} from "@/components/ui/textarea";
+import {POST} from "@/app/api/send/route";
 
 type ContactFormProps = {
     title: string
@@ -28,6 +28,7 @@ type ContactFormProps = {
 }
 
 const ContactForm = ({title, description, buttonLabel}: ContactFormProps) => {
+    const [loading, setLoading] = useState<boolean>(false);
     const {reset} = useForm()
     const form = useForm<z.infer<typeof ContactFormSchema>>({
         resolver: zodResolver(ContactFormSchema),
@@ -35,29 +36,41 @@ const ContactForm = ({title, description, buttonLabel}: ContactFormProps) => {
             name: '',
             email: '',
             confirmEmail: '',
-            message: 'I would like to get in touch',
+            message: 'I would like to get in touch!',
         },
     })
 
     /*TODO: Form not resetting and closing on successful submit*/
-    const onSubmit = (values: z.infer<typeof ContactFormSchema>) => {
-        toast('Success!', {
-            description: (
-                <>
-                    <p>{values.name}</p>
-                    <p>{values.email}</p>
-                    <p>{values.message}</p>
-                </>
-            ),
-            position: 'top-right',
-            duration: 5000
-        })
+    const onSubmit = async (values: z.infer<typeof ContactFormSchema>) => {
+        setLoading(true)
+        try {
+            const response = await POST(values)
+            if (response) {
+                console.log(`RESEND DATA: ${response}`)
+                toast('Success!', {
+                    description: (
+                        'Your email was sent successfully'
+                    ),
+                    duration: 5000
+                })
 
-        reset()
+                reset()
+            }
+            setLoading(false)
+        } catch (error) {
+            console.log(`An error occurred while sending email: ${error}`)
+            toast('Opps! Something went wrong.', {
+                    description: (
+                        'Pleas try again later!'
+                    ),
+                    duration: 5000
+            })
+            setLoading(false)
+        }
     }
 
     return (
-        <Dialog>
+        <Dialog >
             <DialogTrigger>
                 <CustomButton
                     label={buttonLabel}
@@ -138,6 +151,7 @@ const ContactForm = ({title, description, buttonLabel}: ContactFormProps) => {
                         />
 
                         <CustomButton
+                            loading={loading}
                             type="submit"
                             label={'Submit'}
                         />

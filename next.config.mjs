@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['fonts.gstatic.com']
+        remotePatterns: [
+            {
+                hostname: 'fonts.gstatic.com',
+                protocol: "https"
+            },
+        ]
     }
 };
 

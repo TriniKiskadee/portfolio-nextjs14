@@ -44,6 +44,7 @@ const HoverCardComponent = ({trigger, title, description, image, url}: HoverCard
                             <Link
                                 href={url}
                                 className={'text-xs text-muted-foreground underline underline-offset-1'}
+                                target="_blank"
                             >
                                 {url}
                             </Link>

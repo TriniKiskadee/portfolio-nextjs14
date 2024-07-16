@@ -1,26 +1,23 @@
 import React from 'react';
-import {ProjectsCard} from "@/lib/interface";
 import Image from "next/image";
-import {getAllProjects} from "@/actions/project.actions";
+import {Projects} from "@/constants/projects";
 
 
 const FavouriteProjects = async () => {
-    const data = await getAllProjects()
-    if (data === undefined) return null;
     return (
         <>
             <h1 className={'text-4xl lg:text-6xl font-medium mt-20'}>
                 Recent Projects
             </h1>
             <div className={'py-10 grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 grid-cols-1'}>
-                {data.map((item) => (
+                {Projects.map((item, index) => (
                     <a
-                        key={item.id}
+                        key={index}
                         href={item.link}
                         className={'group block'}
                         target={'_blank'}
                     >
-                        <div className={'aspect-w-16 aspect-h-12 overflow-hidden rounded-2xl relative'}>
+                        <div className={'aspect-w-16 aspect-h-12 h-[15rem] overflow-hidden rounded-2xl relative'}>
                             <Image
                                 src={item.imageUrl}
                                 alt={'project image'}

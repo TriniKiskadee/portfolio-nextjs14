@@ -12,7 +12,7 @@ const CurrentSkills = () => {
                     Explore my stack
                 </CardTitle>
                 <CardDescription>
-                    Check out the tools and technologies I use daily. Hover on an image for more information.
+                    Check out the tools and technologies I use daily.
                 </CardDescription>
             </CardHeader>
             <CardContent className={'flex flex-wrap gap-4'}>

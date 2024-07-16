@@ -1,21 +1,9 @@
 import React from 'react';
 import Image from "next/image";
-import {getAllProjects} from "@/actions/project.actions";
-import {ProjectsCard} from "@/lib/interface";
+import {Projects} from "@/constants/projects";
 
-const data = [
-    {
-        _id: '1',
-        title: 'Project 1',
-        description: 'Dummy Data',
-        tags: ['tag1', 'tag2', 'tag3'],
-        imageUrl: '',
-        link: 'https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiTss_P5KeHAxUdVTABHWteBaQQPAgJ',
-    }
-]
 
 const ProjectPage = async () => {
-    /*const data: ProjectsCard = await getAllProjects();*/
 
     return (
         <div className={'max-w-7xl w-full px-4 md:px-8 mx-auto'}>
@@ -26,18 +14,19 @@ const ProjectPage = async () => {
                 Check out the projects I've created
             </p>
             <div className={'py-12 grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 grid-cols-1'}>
-                {data.map((item) => (
+                {Projects.map((item, index) => (
                     <a
-                        key={item._id}
+                        key={index}
                         href={item.link}
                         className={'group block'}
                         target={'_blank'}
                     >
-                        <div className={'aspect-w-16 aspect-h-12 overflow-hidden rounded-2xl relative'}>
+                        <div className={'aspect-w-16 aspect-h-12 h-[20rem] overflow-hidden rounded-2xl relative'}>
                             <Image
                                 src={item.imageUrl}
                                 alt={'project image'}
                                 fill
+                                sizes={'100%'}
                                 className={'object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-2xl'}
                             />
                         </div>

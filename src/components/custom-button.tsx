@@ -1,14 +1,15 @@
-import {ArrowRight} from "lucide-react";
+import {ArrowRight, LoaderCircle} from "lucide-react";
 
 import {cn} from "@/lib/utils";
 
 interface CustomButtonProps {
+    loading?: boolean;
     label: string;
     className?: string;
     type?: 'submit' | 'reset';
 }
 
-const CustomButton = ({label, className, type}: CustomButtonProps) => {
+const CustomButton = ({loading, label, className, type}: CustomButtonProps) => {
     const backgroundColor = 'bg-[#EF476F] hover:bg-gray-800'
     const labelColor = 'text-gray-800 group-hover:text-[#EF476F]'
     const arrowBgColor = 'bg-gray-800 group-hover:bg-[#EF476F]'
@@ -24,37 +25,49 @@ const CustomButton = ({label, className, type}: CustomButtonProps) => {
                     backgroundColor, className,
                 )}
             >
-                <span
-                    className={cn(
-                        "transition-colors duration-100 ease-in-out", labelColor,
-                    )}
-                >
-                  {label}
-                </span>
-                <div
-                    className={cn(
-                        "relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-full transition-transform duration-100",
-                        arrowBgColor,
-                    )}
-                >
-                    <div
-                        className="absolute left-0 flex h-7 w-14 -translate-x-1/2 items-center justify-center transition-all duration-200 ease-in-out group-hover:translate-x-0">
-                        <ArrowRight
-                            size={16}
+                {loading ? (
+                    <span
+                        className={cn(
+                            "transition-colors duration-100 ease-in-out", labelColor,
+                        )}
+                    >
+                        <LoaderCircle className={'animate-spin w-8 h-8'}/>
+                    </span>
+                ) : (
+                    <>
+                        <span
                             className={cn(
-                                "size-7 transform p-1 opacity-0 group-hover:opacity-100",
-                                arrowFontHoverColor
+                                "transition-colors duration-100 ease-in-out", labelColor,
                             )}
-                        />
-                        <ArrowRight
-                            size={16}
+                        >
+                            {label}
+                        </span>
+                        <div
                             className={cn(
-                                "size-7 transform p-1 opacity-100 transition-transform duration-300 ease-in-out group-hover:opacity-0",
-                                arrowFontColor
+                                "relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-full transition-transform duration-100",
+                                arrowBgColor,
                             )}
-                        />
-                    </div>
-                </div>
+                        >
+                            <div
+                                className="absolute left-0 flex h-7 w-14 -translate-x-1/2 items-center justify-center transition-all duration-200 ease-in-out group-hover:translate-x-0">
+                                <ArrowRight
+                                    size={16}
+                                    className={cn(
+                                        "size-7 transform p-1 opacity-0 group-hover:opacity-100",
+                                        arrowFontHoverColor
+                                    )}
+                                />
+                                <ArrowRight
+                                    size={16}
+                                    className={cn(
+                                        "size-7 transform p-1 opacity-100 transition-transform duration-300 ease-in-out group-hover:opacity-0",
+                                        arrowFontColor
+                                    )}
+                                />
+                            </div>
+                        </div>
+                    </>
+                )}
             </button>
         </div>
     );

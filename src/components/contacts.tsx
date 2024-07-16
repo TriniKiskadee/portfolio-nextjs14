@@ -6,7 +6,7 @@ import {Card} from "@/components/ui/card";
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
-import {CheckCircle, Copy} from "lucide-react";
+import {Copy, Link2} from "lucide-react";
 import {toast} from "sonner";
 
 const Contacts = () => {
@@ -15,11 +15,7 @@ const Contacts = () => {
         try {
             await navigator.clipboard.writeText(text);
             setIsCopied(true)
-            setTimeout(() => {
-                setIsCopied(false)
-            }, 10000)
-
-            {isCopied && (
+            {isCopied && text !== '' && (
                 toast('Copied to clipboard!', {
                     description: (text),
                     position: 'top-right',
@@ -27,7 +23,9 @@ const Contacts = () => {
                     closeButton: true,
                 })
             )}
-
+            setTimeout(() => {
+                setIsCopied(false)
+            }, 10000)
         } catch (error) {
             console.log(error)
         }
@@ -54,12 +52,20 @@ const Contacts = () => {
                         {item.username}
                     </p>
                     <Button
-                        className={'mt-4'}
+                        className={'mt-4 bg-[#EF476F]'}
                         size={'sm'}
                         asChild
                     >
-                        <Link href={item.href}>
-                            Visit
+                        <Link
+                            href={item.href}
+                            target={'_blank'}
+                        >
+                            <span className={'group-hover:scale-105 inline-flex items-center'}>
+                                <>
+                                    Copy
+                                    <Link2 className={'w-4 h-4 ml-4'}/>
+                                </>
+                            </span>
                         </Link>
                     </Button>
                 </Card>
@@ -83,7 +89,7 @@ const Contacts = () => {
                         {item.contact}
                     </p>
                     <Button
-                        className={'mt-4 group'}
+                        className={'mt-4 group bg-[#EF476F]'}
                         size={'sm'}
                         onClick={() => copyToClipboard(item.contact)}
                     >

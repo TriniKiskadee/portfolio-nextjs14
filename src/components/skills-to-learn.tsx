@@ -12,8 +12,7 @@ const SkillsToLearn = () => {
                     Skill to learn
                 </CardTitle>
                 <CardDescription>
-                    These are the tools and technologies I wish to learn in the near future. Hover on an image
-                    for more information.
+                    These are the tools and technologies I wish to learn in the near future.
                 </CardDescription>
             </CardHeader>
             <CardContent className={'flex flex-wrap gap-4'}>

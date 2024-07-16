@@ -9,26 +9,20 @@ const Hero = () => {
             <div
                 className={'col-span-1 lg:col-span-2 h-full bg-gray-100 min-h-[500px] lg:min-h-[300px] rounded-2xl p-8'}>
                 <h1 className={'text-4xl lg:text-6xl font-medium'}>
-                    Hi! I'm Renaud Sennon 🚀
+                    Hello! I'm Renaud Sennon
                 </h1>
-                <h1 className={'text-4xl lg:text-6xl font-normal my-4'}>
-                    <span className={'inline-flex items-center'}>
-                        A
-                        <WordRotate
-                            words={['', '', '', '', '', '', 'n']}
-                        />
-                        <WordRotate
-                            words={['Next.JS', 'TypeScript', 'JavaScript', 'Front End', 'Back End', 'SaaS', 'AI']}
-                            className={'text-[#EF476F] ml-4'}
-                        />
-                    </span><br/>
-                    developer, working and living in Trinidad and Tobago 🇹🇹
-                </h1>
-                <ContactForm
-                    title={'Get in touch'}
-                    description={'Please fill out the form below'}
-                    buttonLabel={'Get In Touch'}
-                />
+                <p className={'text-4xl lg:text-4xl font-normal my-4'}>
+                    A full-stack developer
+                    with <span className={'font-medium underline'}>2 Years</span> experience.
+                    My focus is <span className="italic">React (Next.js)</span>.
+                </p>
+                <div className={'mt-12'}>
+                    <ContactForm
+                        title={'Get in touch'}
+                        description={'Please fill out the form below'}
+                        buttonLabel={'Get In Touch'}
+                    />
+                </div>
             </div>
 
             <Image
