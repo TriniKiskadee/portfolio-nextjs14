@@ -11,7 +11,7 @@ const ProjectPage = async () => {
                 Projects
             </h1>
             <p className={'leading '}>
-                Check out the projects I've created
+                Check out the projects I&apos;ve created
             </p>
             <div className={'py-12 grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 grid-cols-1'}>
                 {Projects.map((item, index) => (

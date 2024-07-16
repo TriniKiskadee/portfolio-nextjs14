@@ -9,7 +9,7 @@ const Hero = () => {
             <div
                 className={'col-span-1 lg:col-span-2 h-full bg-gray-100 min-h-[500px] lg:min-h-[300px] rounded-2xl p-8'}>
                 <h1 className={'text-4xl lg:text-6xl font-medium'}>
-                    Hello! I'm Renaud Sennon
+                    Hello! I&apos;m Renaud Sennon
                 </h1>
                 <p className={'text-4xl lg:text-4xl font-normal my-4'}>
                     A full-stack developer
